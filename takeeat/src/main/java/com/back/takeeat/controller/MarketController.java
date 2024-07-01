@@ -1,6 +1,5 @@
 package com.back.takeeat.controller;
 
-import com.back.takeeat.domain.market.Market;
 import com.back.takeeat.domain.market.MarketInfoForm;
 import com.back.takeeat.service.MarketInfoService;
 import jakarta.validation.Valid;
@@ -29,18 +28,6 @@ public class MarketController {
             return "/market/marketInfo";
         }
 
-        Market market = new Market();
-        market.setClosedDays(form.getClosedDays());
-        market.setOperationTime(form.getOperationTime());
-        market.setBusinessNumber(form.getBusinessNumber());
-        market.setQuery(form.getQuery());
-        market.setAddressDetail(form.getAddressDetail());
-        market.setMarketName(form.getMarketName());
-        market.setMarketNumber(form.getMarketNumber());
-        market.setMarketIntroduction(form.getMarketIntroduction());
-        market.setMarketImage(form.getMarketImage());
-        market.setMarketCategory(form.getMarketCategory());
-        marketInfoService.saveMarket(market);
         return "redirect:/menu";
     }
     @GetMapping("/menu")
