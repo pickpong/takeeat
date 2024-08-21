@@ -41,6 +41,9 @@ public class MarketController {
     @Value("${KAKAO_API_KEY}")
     String KAKAO_API_KEY;
 
+    @Value("${BUSINESS_NUMBER_API_KEY}")
+    String BUSINESS_NUMBER_API_KEY;
+
     @GetMapping("/home")
     public String marketHome(@LoginMember Member member, Model model) {
         Long memberId = member.getId();
@@ -67,6 +70,7 @@ public class MarketController {
     public String marketInfo(@ModelAttribute("marketInfo") MarketInfoRequest marketInfoRequest, Model model) {
         model.addAttribute("marketInfo", marketInfoRequest);
         model.addAttribute("KAKAO_API_KEY", KAKAO_API_KEY);
+        model.addAttribute("BUSINESS_NUMBER_API_KEY", BUSINESS_NUMBER_API_KEY);
         return "market/marketInfo";
     }
 

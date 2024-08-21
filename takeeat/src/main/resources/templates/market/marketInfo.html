@@ -74,7 +74,10 @@
                     <hr class="hr-margin"/>
 
                     <div class="info-text essential">사업자번호</div>
-                    <input type="text" id="businessNumber" th:field="*{businessNumber}" th:errorclass="field-error-border" name="businessNumber" class="l-input-box margin-top-10" value="123-456-789" />
+                    <div class="line-container">
+                        <input type="text" id="businessNumber" th:field="*{businessNumber}" th:errorclass="field-error-border" name="businessNumber" class="l-input-box margin-top-10" value="123-456-789" />
+                        <input type="button" id="businessNumberValid" class="dup-button margin-left-10" value="확인"/>
+                    </div>
                     <div class="field-error" id="businessNumberError" th:errors="*{marketNumber}"></div>
                     <hr class="hr-margin"/>
 
@@ -121,12 +124,14 @@
         </div>
     </div>
     <script th:inline="javascript">
+        var b_no_key = [[${BUSINESS_NUMBER_API_KEY}]];
         var appkey = [[${KAKAO_API_KEY}]];
         var script = document.createElement('script');
         script.type = "text/javascript";
         script.src = "//dapi.kakao.com/v2/maps/sdk.js?appkey=" + appkey + "&autoload=false&libraries=services";
         document.head.appendChild(script);
-
+        var b_no = [[${businessNumber}]];
+        console.log(b_no);
     </script>
     <script src="/js/market/marketInfo.js"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
