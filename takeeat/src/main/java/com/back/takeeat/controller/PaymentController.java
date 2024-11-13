@@ -23,7 +23,7 @@ public class PaymentController {
         //@TODO 본인의 결제완료 페이지만 볼 수 있도록 예외처리
         model.addAttribute("orderId", orderId);
         model.addAttribute("paymentResultResponse", paymentService.findPaymentResult(orderId, member.getId()));
-        return "/payment/orderPaymentResult";
+        return "payment/orderPaymentResult";
     }
 
     //화면에서 결제 완료 시 처리하는 로직

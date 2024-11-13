@@ -22,7 +22,7 @@ public class MainController {
     public String mainPage(Model model, HttpSession session) {
 
         model.addAttribute("KAKAO_API_KEY", KAKAO_API_KEY);
-        return "/mainPage/index";
+        return "mainPage/index";
     }
 
     @PostMapping("/saveGPSInfo")
