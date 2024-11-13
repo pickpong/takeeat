@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -62,7 +63,7 @@ public class ReviewResponse {
     }
 
     private static String localDateTimeFormat(LocalDateTime createdTime) {
-        LocalDateTime todayDateTime = LocalDateTime.now();
+        LocalDateTime todayDateTime = LocalDateTime.now(ZoneId.of("Asia/Seoul"));
         LocalDate today = todayDateTime.toLocalDate();
         LocalDate yesterday = today.minusDays(1);
         LocalDate writeDate = createdTime.toLocalDate();
